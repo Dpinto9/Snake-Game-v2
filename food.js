@@ -1,7 +1,11 @@
 import { onSnake, expandSnake } from "./snake.js";
 import { randomGridPosition } from "./grid.js";
 
+let score = 0;
 let food = getRandomFoodPosition()
+const scoreElement = document.getElementById('score');
+
+export{ score, scoreElement };
 
 const EXPANSION_RATE = 1
 
@@ -9,6 +13,9 @@ export function update(){
     if(onSnake(food)){
         expandSnake(EXPANSION_RATE)
         food = getRandomFoodPosition()
+        score++;
+
+        scoreElement.textContent = `Score: ${score}`;
     }
 }
 
@@ -26,8 +33,6 @@ function getRandomFoodPosition(){
     while(newFoodPostion == null || onSnake(newFoodPostion)){
         newFoodPostion = randomGridPosition()
     }
-
-    console.log(newFoodPostion)
 
     return newFoodPostion
 }

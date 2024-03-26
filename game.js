@@ -1,14 +1,15 @@
 // game.js
 
 import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection } from "./snake.js";
-import { update as updateFood, draw as drawFood } from "./food.js";
+import { update as updateFood, draw as drawFood, score, scoreElement } from "./food.js";
 import { outsideGrid } from "./grid.js";
 import { getInputDirection } from "./input.js";
 
 const gameBoard = document.getElementById('game-board');
 let lastRender = 0;
 let gameOver = false;
-let gameStarted = false; 
+let gameStarted = false;
+
 
 // Entry function to start the game
 function startGame() {
@@ -17,6 +18,7 @@ function startGame() {
         // Remove the event listener for keydown once the game starts
         document.removeEventListener('keydown', startGameKeyPressHandler); // Adjusted here
         requestAnimationFrame(main);
+        scoreElement.style.display = 'block';
     }
 }
 
@@ -27,38 +29,39 @@ function showEntranceMessage() {
     document.addEventListener('keydown', startGameKeyPressHandler);
 }
 
-// Function to handle key press for starting the game
+// Function to handle key press for starting the game and resetting the game
 function startGameKeyPressHandler(event) {
-    const resetKeys = ['Enter', 'R']; // Define keys that reset the game (e.g., Enter and R)
-    if (resetKeys.includes(event.key)) { // Check if the pressed key is in the resetKeys array
-        document.removeEventListener('keydown', startGameKeyPressHandler);
-        if (gameOver) {
-            resetGame(); // Reset the game if it's over
-        } else {
+    if (!gameStarted) {
+        if (event.key === 'Enter') {
+            document.removeEventListener('keydown', startGameKeyPressHandler);
             startGame();
         }
     }
 }
 
-// Function to reset the game state
-function resetGame() {
-    gameOver = false;
-    gameStarted = false;
-    gameBoard.innerHTML = ''; // Clear the game board
-    // Reset any other game state variables if necessary
-    // Call functions to set up the game again (e.g., displaying entrance message)
-    showEntranceMessage();
-}
-
 // Display entrance message initially
 showEntranceMessage();
 
-// Function to display the game over message
 function showGameOverMessage() {
+    scoreElement.style.display = 'none';
+    
     const gameOverMessage = document.createElement('div');
     gameOverMessage.textContent = 'Game Over';
     gameOverMessage.classList.add('game-over-message');
     gameBoard.appendChild(gameOverMessage);
+
+    const finalScoreMessage = document.createElement('div');
+    finalScoreMessage.textContent = `Score: ${score}`;
+    finalScoreMessage.classList.add('final-score-message');
+    gameBoard.appendChild(finalScoreMessage);
+
+    // Add an event listener for the Enter key
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            // Reload the page when the Enter key is pressed
+            location.reload();
+        }
+    });
 }
 
 // Main game loop
@@ -88,6 +91,7 @@ function draw() {
     gameBoard.innerHTML = '';
     drawSnake(gameBoard);
     drawFood(gameBoard);
+    scoreElement.textContent = `Score: ${score}`;
 }
 
 function checkDeath() {

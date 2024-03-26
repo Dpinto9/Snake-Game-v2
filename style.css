@@ -37,3 +37,19 @@ body{
     font-size: 40px;
     color: white;
 }
+
+.final-score-message{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+}
+
+
+#score {
+    position: absolute;
+    right: 50vw;
+    top: 20px;
+}
