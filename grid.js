@@ -1,4 +1,14 @@
-const GRID_SIZE = 21
+let GRID_SIZE = 21
+
+export function setGridSize(size, gameBoard) {
+    GRID_SIZE = size;
+
+    if (size === 31) {
+        gameBoard.classList.add('big-grid');
+    } else {
+        gameBoard.classList.remove('big-grid');
+    }
+}
 
 export function randomGridPosition(){
     return {

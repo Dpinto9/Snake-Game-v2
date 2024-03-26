@@ -21,6 +21,11 @@ body{
     grid-template-rows: repeat(21, auto);
 }
 
+#game-board.big-grid {
+    grid-template-columns: repeat(31, auto);
+    grid-template-rows: repeat(31, auto);
+}
+
 .snake{
     background-color: #6fc355;
 }

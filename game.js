@@ -1,8 +1,8 @@
 // game.js
 
-import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection } from "./snake.js";
+import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection, setSnakeSpeed, getSnakeSpeed } from "./snake.js";
 import { update as updateFood, draw as drawFood, score, scoreElement } from "./food.js";
-import { outsideGrid } from "./grid.js";
+import { outsideGrid, setGridSize } from "./grid.js";
 import { getInputDirection } from "./input.js";
 
 const gameBoard = document.getElementById('game-board');
@@ -19,6 +19,7 @@ function startGame() {
         document.removeEventListener('keydown', startGameKeyPressHandler); // Adjusted here
         requestAnimationFrame(main);
         scoreElement.style.display = 'block';
+
     }
 }
 
@@ -91,7 +92,7 @@ function draw() {
     gameBoard.innerHTML = '';
     drawSnake(gameBoard);
     drawFood(gameBoard);
-    scoreElement.textContent = `Score: ${score}`;
+    scoreElement.textContent = `Score: ${score}, Speed: ${getSnakeSpeed()}`;
 }
 
 function checkDeath() {

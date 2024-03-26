@@ -1,4 +1,4 @@
-import { onSnake, expandSnake } from "./snake.js";
+import { onSnake, expandSnake, getSnakeSpeed } from "./snake.js";
 import { randomGridPosition } from "./grid.js";
 
 let score = 0;

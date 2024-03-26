@@ -1,12 +1,21 @@
 import { getInputDirection } from "./input.js"
 
-export const SNAKE_SPEED = 10 //aumentar o numero fica mais rapido
+export let SNAKE_SPEED = 7
 
 const snakeBody = [{
     x:11, y:11
 }]
 
 let newSegments = 0
+
+export function setSnakeSpeed(speed) {
+    SNAKE_SPEED = speed
+    
+}
+
+export function getSnakeSpeed() {
+    return SNAKE_SPEED
+}
 
 export function update(){
     addSegments()
