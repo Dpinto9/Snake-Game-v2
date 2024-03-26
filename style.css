@@ -1,0 +1,39 @@
+body{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    background-color: #ccc;
+}
+
+#game-board{
+    background-color: hsl(0, 0%, 14%);
+
+    width: 80vmin;
+    height: 80vmin;
+
+    display: grid;
+    grid-template-columns: repeat(21, auto);
+    grid-template-rows: repeat(21, auto);
+}
+
+.snake{
+    background-color: #6fc355;
+}
+
+.food{
+    background-color: #d84242;
+}
+
+.entrance-message, .game-over-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+}
