@@ -10,6 +10,10 @@ let newSegments = 0
 
 export function setSnakeSpeed(speed) {
     SNAKE_SPEED = speed
+
+    if(score > 3 ){
+        SNAKE_SPEED += 4
+    }
     
 }
 

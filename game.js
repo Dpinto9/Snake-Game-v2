@@ -86,6 +86,7 @@ function update() {
     updateSnake();
     updateFood();
     checkDeath();
+    adjustSnakeSpeed();
 }
 
 function draw() {
@@ -93,8 +94,17 @@ function draw() {
     drawSnake(gameBoard);
     drawFood(gameBoard);
     scoreElement.textContent = `Score: ${score}, Speed: ${getSnakeSpeed()}`;
+
 }
 
 function checkDeath() {
     gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
+}
+
+function adjustSnakeSpeed() {
+    if (score > 3 && getSnakeSpeed() === 7) {
+        setSnakeSpeed(11);
+    } else if (score > 2 && getSnakeSpeed() === 12) {
+        setSnakeSpeed(16);
+    }
 }
