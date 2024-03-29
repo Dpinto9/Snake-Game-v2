@@ -7,6 +7,7 @@ import { getInputDirection } from "./input.js";
 
 const gameBoard = document.getElementById('game-board');
 const speedElement = document.getElementById('speed');
+
 let lastRender = 0;
 let gameOver = false;
 let gameStarted = false;
@@ -35,6 +36,11 @@ function startGameKeyPressHandler(event) {
         if (event.key === 'Enter') {
             document.removeEventListener('keydown', startGameKeyPressHandler);
             startGame();
+
+            document.querySelectorAll('.buttons button').forEach(element => {
+                element.style.display = 'none';
+            });
+
         }
     }
 }

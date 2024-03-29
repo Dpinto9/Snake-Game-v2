@@ -72,8 +72,6 @@ body{
                   1px  1px 0 #d4e09b;
 }
 
-
-
 .gameborder{
     width: 10px;
 }
@@ -133,13 +131,12 @@ body{
     color: white;
 }
 
-
-
-
+.buttons button.selected{
+    background-color: #ff928b;
+    color: #ffffff;
+}
 
 /* Asthetics */
-
-
 .container{
     border: 5px solid #344e41;
     border-radius: 48px;
@@ -172,6 +169,7 @@ body{
     height: 7vmin;
     margin-top: -50px;
     z-index: -1;
+    border-top: 3px solid #588157;
 }
 
 .btnele{
