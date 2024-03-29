@@ -3,8 +3,10 @@ import { randomGridPosition } from "./grid.js";
 import { playAudio } from "./audio.js";
 
 let score = 0;
+let highScore = localStorage.getItem("high-score") || 0;
 let food = getRandomFoodPosition()
 const scoreElement = document.getElementById('score');
+const highElement = document.querySelector('.high');
 
 export{ score, scoreElement };
 
@@ -18,6 +20,10 @@ export function update(){
         playAudio('eating');
         showNotification('+10 pontos!');
         scoreElement.textContent = `Score: ${score}`;
+        
+        highScore = score >=highScore ? score : highScore;
+        localStorage.setItem("high-score", highScore);
+        highElement.textContent = `High Score: ${highScore}`;
     }
 }
 

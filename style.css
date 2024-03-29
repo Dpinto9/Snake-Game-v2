@@ -140,7 +140,14 @@ body{
     text-align: left;
 }
 
-#score, #speed{
+.high {
+    color: #a3b18a;
+    font-size: 25px;
+    margin-top: 4px;
+    text-decoration: underline;
+}
+
+#score, #speed {
     width: 20vmin;
     color: #a3b18a;
     text-shadow: -1px -1px 0 #344e41,  
