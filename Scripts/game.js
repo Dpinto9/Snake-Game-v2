@@ -4,6 +4,7 @@ import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, sn
 import { update as updateFood, draw as drawFood, score, scoreElement } from "./food.js";
 import { outsideGrid, setGridSize } from "./grid.js";
 import { getInputDirection } from "./input.js";
+import { playAudio } from "./audio.js";
 
 const gameBoard = document.getElementById('game-board');
 const speedElement = document.getElementById('speed');
@@ -33,6 +34,8 @@ function showEntranceMessage() {
     pressEnter.classList.add('pressEnter');
     gameBoard.appendChild(pressEnter);
 
+    playAudio(1);
+    
     document.addEventListener('keydown', startGameKeyPressHandler);
 }
 
@@ -42,6 +45,8 @@ function startGameKeyPressHandler(event) {
         if (event.key === 'Enter') {
             document.removeEventListener('keydown', startGameKeyPressHandler);
             startGame();
+
+            playAudio("start");
 
             document.querySelectorAll('.buttons button').forEach(element => {
                 element.style.display = 'none';
@@ -55,6 +60,8 @@ function startGameKeyPressHandler(event) {
 showEntranceMessage();
 
 function showGameOverMessage() {
+
+    playAudio("gameover");
     
     const gameOverMessage = document.createElement('div');
     gameOverMessage.textContent = 'Game Over';
@@ -78,6 +85,11 @@ function showGameOverMessage() {
         }
     });
 }
+
+let soundPlayed = false;
+let lastSoundPlayTime = 0;
+const soundInterval = 5000;
+
 
 // Main game loop
 function main(currentTime) {
@@ -121,7 +133,8 @@ function adjustSnakeSpeed() {
     if (score > 30 && getSnakeSpeed() === 10) {
         setSnakeSpeed(14);
 
-        const elementToFlash = document.querySelector('#game-board'); 
+        const elementToFlash = document.querySelector('#game-board');
+        playAudio("boost");  
         elementToFlash.style.animation = 'flash 0.1s infinite alternate'; 
         setTimeout(() => {
             elementToFlash.style.animation = ''; 
@@ -130,7 +143,8 @@ function adjustSnakeSpeed() {
     } else if (score > 40 && getSnakeSpeed() === 15) {
         setSnakeSpeed(18);
 
-        const elementToFlash = document.querySelector('.element-to-flash'); 
+        const elementToFlash = document.querySelector('#game-board');
+        playAudio("boost"); 
         elementToFlash.style.animation = 'flash 0.1s infinite alternate'; 
         setTimeout(() => {
             elementToFlash.style.animation = ''; 

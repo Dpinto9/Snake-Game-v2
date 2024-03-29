@@ -197,6 +197,56 @@ body{
     top: 7px;
 }
 
+/* volume box */
+.box{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05), #588157);
+    height: 2vmin;
+    border-radius: 40px;
+    box-shadow: 15px 15px 20px rgba(0,0,0,0.1), -1px -1px 2px #ffffff3c;
+}
+
+.range{
+    width: 180px;
+    height: 12px;
+    appearance: none;
+    background: #1b4332;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1), -2px -2px 4px #ffffff3c,
+    inset 2px 2px 2px;
+    overflow: hidden;
+    
+}
+
+.range::-webkit-slider-thumb{
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid #f9c74f;
+    box-shadow: -187px 0 0 180px #f9c74f;
+    cursor: pointer;
+}
+
+#rangeValue {
+    position: relative;
+    text-align: center;
+    width: 60px;
+    font-size: 1.2em;
+    color: white;
+    font-weight: bold;
+    margin-left: 14px;
+    background: #f9c74f;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1), -2px -2px 4px #ffffff3c, inset 2px 2px 2px rgba(255, 255, 255, 0.25);
+}
+
 /* Asthetics */
 .container{
     border: 5px solid #344e41;

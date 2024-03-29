@@ -1,5 +1,6 @@
 import { onSnake, expandSnake, getSnakeSpeed } from "./snake.js";
 import { randomGridPosition } from "./grid.js";
+import { playAudio } from "./audio.js";
 
 let score = 0;
 let food = getRandomFoodPosition()
@@ -14,7 +15,7 @@ export function update(){
         expandSnake(EXPANSION_RATE)
         food = getRandomFoodPosition()
         score += 10 ;
-
+        playAudio('eating');
         showNotification('+10 pontos!');
         scoreElement.textContent = `Score: ${score}`;
     }
