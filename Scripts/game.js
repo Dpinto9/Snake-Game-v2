@@ -30,7 +30,7 @@ function showEntranceMessage() {
     gameBoard.innerHTML = '<div class="entrance-message"><img src="Assets/Imgs/logo.png"><p>Snake Game</p></div>';
 
     const pressEnter = document.createElement('div');
-    pressEnter.textContent = '*Press ENTER to continue*';
+    pressEnter.textContent = '*Press "ENTER" to start*';
     pressEnter.classList.add('pressEnter');
     gameBoard.appendChild(pressEnter);
 
@@ -74,7 +74,7 @@ function showGameOverMessage() {
     gameBoard.appendChild(finalScoreMessage);
 
     const pressEnter = document.createElement('div');
-    pressEnter.textContent = '*Press ENTER to continue*';
+    pressEnter.textContent = '*Press "ENTER" to continue*';
     pressEnter.classList.add('pressEnter');
     gameBoard.appendChild(pressEnter);
 
