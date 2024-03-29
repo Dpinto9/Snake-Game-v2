@@ -47,12 +47,12 @@ selectedButtons = Array.from(document.querySelectorAll('.selected'));
 
 // Buttons functions
 slowButton.addEventListener('click', function() {
-    setSnakeSpeed(7);
+    setSnakeSpeed(10);
     speedElement.textContent = `Speed: ${getSnakeSpeed()}`;
 });
 
 fastButton.addEventListener('click', function() {
-    setSnakeSpeed(12);
+    setSnakeSpeed(15);
     speedElement.textContent = `Speed: ${getSnakeSpeed()}`;
 });
 

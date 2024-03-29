@@ -13,8 +13,9 @@ export function update(){
     if(onSnake(food)){
         expandSnake(EXPANSION_RATE)
         food = getRandomFoodPosition()
-        score++;
+        score += 10 ;
 
+        showNotification('+10 pontos!');
         scoreElement.textContent = `Score: ${score}`;
     }
 }
@@ -35,4 +36,13 @@ function getRandomFoodPosition(){
     }
 
     return newFoodPostion
+}
+
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+
+    setTimeout(() => {
+        notification.textContent = '';
+    }, 1000);
 }

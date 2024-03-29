@@ -1,6 +1,6 @@
 import { getInputDirection } from "./input.js"
 
-export let SNAKE_SPEED = 7
+export let SNAKE_SPEED = 10
 
 const snakeBody = [{
     x:11, y:11
@@ -11,7 +11,7 @@ let newSegments = 0
 export function setSnakeSpeed(speed) {
     SNAKE_SPEED = speed
 
-    if(score > 3 ){
+    if(score > 30 ){
         SNAKE_SPEED += 4
     }
     

@@ -118,9 +118,22 @@ function checkDeath() {
 }
 
 function adjustSnakeSpeed() {
-    if (score > 3 && getSnakeSpeed() === 7) {
-        setSnakeSpeed(11);
-    } else if (score > 2 && getSnakeSpeed() === 12) {
-        setSnakeSpeed(16);
+    if (score > 30 && getSnakeSpeed() === 10) {
+        setSnakeSpeed(14);
+
+        const elementToFlash = document.querySelector('#game-board'); 
+        elementToFlash.style.animation = 'flash 0.1s infinite alternate'; 
+        setTimeout(() => {
+            elementToFlash.style.animation = ''; 
+        }, 1000);
+        
+    } else if (score > 40 && getSnakeSpeed() === 15) {
+        setSnakeSpeed(18);
+
+        const elementToFlash = document.querySelector('.element-to-flash'); 
+        elementToFlash.style.animation = 'flash 0.1s infinite alternate'; 
+        setTimeout(() => {
+            elementToFlash.style.animation = ''; 
+        }, 1000);
     }
 }

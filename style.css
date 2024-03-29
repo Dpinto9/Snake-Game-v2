@@ -118,12 +118,14 @@ body{
     }
 }
 
+
 .gameborder{
     width: 10px;
 }
 
 
 #top {
+    position: relative;
     display: flex;
     background-color: #3a5a40;
     border-bottom: 10px solid #a3b18a;
@@ -186,6 +188,13 @@ body{
 .buttons button.selected{
     background-color: #f9c74f;
     color: #fff;
+}
+
+#notification{
+    position: absolute;
+    color: #fb4d3d;
+    left: 150px;
+    top: 7px;
 }
 
 /* Asthetics */
