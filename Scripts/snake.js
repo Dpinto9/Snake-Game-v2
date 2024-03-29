@@ -34,15 +34,21 @@ export function update(){
 }
 
 
-export function draw(gameBoard){
-    snakeBody.forEach(segment =>{
+export function draw(gameBoard) {
+    snakeBody.forEach((segment, index) => {
         const snakeElement = document.createElement('div');
         snakeElement.style.gridColumnStart = segment.x;
         snakeElement.style.gridRowStart = segment.y;
-        snakeElement.classList.add('snake');
+
+        // Add a class for the snake head
+        if (index === 0) {
+            snakeElement.classList.add('snake-head');
+        } else {
+            snakeElement.classList.add('snake');
+        }
+
         gameBoard.appendChild(snakeElement);
-        
-    })
+    });
 }
 
 export function expandSnake(amount){
