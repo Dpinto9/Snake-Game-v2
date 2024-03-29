@@ -6,6 +6,7 @@ import { outsideGrid, setGridSize } from "./grid.js";
 import { getInputDirection } from "./input.js";
 
 const gameBoard = document.getElementById('game-board');
+const speedElement = document.getElementById('speed');
 let lastRender = 0;
 let gameOver = false;
 let gameStarted = false;
@@ -15,10 +16,9 @@ let gameStarted = false;
 function startGame() {
     if (!gameStarted) {
         gameStarted = true;
-        // Remove the event listener for keydown once the game starts
-        document.removeEventListener('keydown', startGameKeyPressHandler); // Adjusted here
+        
+        document.removeEventListener('keydown', startGameKeyPressHandler); 
         requestAnimationFrame(main);
-        scoreElement.style.display = 'block';
 
     }
 }
@@ -26,7 +26,6 @@ function startGame() {
 // Function to display entrance message and set up event listener for Enter key press
 function showEntranceMessage() {
     gameBoard.innerHTML = '<div class="entrance-message">Press ENTER to start</div>';
-    // Add an event listener to start the game when Enter key is pressed
     document.addEventListener('keydown', startGameKeyPressHandler);
 }
 
@@ -44,7 +43,6 @@ function startGameKeyPressHandler(event) {
 showEntranceMessage();
 
 function showGameOverMessage() {
-    scoreElement.style.display = 'none';
     
     const gameOverMessage = document.createElement('div');
     gameOverMessage.textContent = 'Game Over';
@@ -59,7 +57,6 @@ function showGameOverMessage() {
     // Add an event listener for the Enter key
     window.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
-            // Reload the page when the Enter key is pressed
             location.reload();
         }
     });
@@ -93,7 +90,9 @@ function draw() {
     gameBoard.innerHTML = '';
     drawSnake(gameBoard);
     drawFood(gameBoard);
-    scoreElement.textContent = `Score: ${score}, Speed: ${getSnakeSpeed()}`;
+    scoreElement.textContent = `Score: ${score}`;
+    scoreElement.classList.add('top-element');
+    speedElement.textContent = `Speed: ${getSnakeSpeed()}`;
 
 }
 
