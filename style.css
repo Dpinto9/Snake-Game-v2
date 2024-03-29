@@ -19,6 +19,18 @@ body{
     overflow: hidden;
 }
 
+.creditos {
+    width: 20vmin;
+    height: 30px;
+    color: #a3b18a;
+    font-size: larger;
+    background-color: #344e41;
+    border-top: 2px solid #1b4332;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+    margin-left: 1px;
+}
+
 #game-board{
     background-color: none;
 
@@ -50,7 +62,7 @@ body{
 
 .entrance-message, .game-over-message, .final-score-message {
     position: absolute;
-    top: 45%;
+    top: 43%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -59,7 +71,7 @@ body{
 
     color: #344e41;
     
-    font-size: 60px;
+    font-size: 80px;
 }
 
 .entrance-message p {
@@ -70,7 +82,7 @@ body{
 .entrance-message img{
     position: absolute;
     width: 300px;
-    margin-top: -150px;
+    margin-top: -200px;
     opacity: 80%;
 
 }
@@ -88,6 +100,24 @@ body{
                   1px  1px 0 #d4e09b;
 }
 
+.pressEnter{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #d84242;
+    animation: flash 0.8s infinite alternate;
+}
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .gameborder{
     width: 10px;
 }
@@ -100,10 +130,16 @@ body{
     width: 80vmin;
     height: 5vmin;
     justify-content: space-between;
+    flex-direction: end;
+    text-align: end;
 
+}
+#score {
+    text-align: left;
 }
 
 #score, #speed{
+    width: 20vmin;
     color: #a3b18a;
     text-shadow: -1px -1px 0 #344e41,  
                   1px -1px 0 #344e41,
@@ -148,8 +184,8 @@ body{
 }
 
 .buttons button.selected{
-    background-color: #fec3a6;
-    color: #e06c9f;
+    background-color: #f9c74f;
+    color: #fff;
 }
 
 /* Asthetics */

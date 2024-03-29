@@ -26,7 +26,13 @@ function startGame() {
 
 // Function to display entrance message and set up event listener for Enter key press
 function showEntranceMessage() {
-    gameBoard.innerHTML = '<div class="entrance-message"><img src="Assets/Imgs/logo.png"><p>Press "ENTER" to start</p></div>';
+    gameBoard.innerHTML = '<div class="entrance-message"><img src="Assets/Imgs/logo.png"><p>Snake Game</p></div>';
+
+    const pressEnter = document.createElement('div');
+    pressEnter.textContent = '*Press ENTER to continue*';
+    pressEnter.classList.add('pressEnter');
+    gameBoard.appendChild(pressEnter);
+
     document.addEventListener('keydown', startGameKeyPressHandler);
 }
 
@@ -59,6 +65,11 @@ function showGameOverMessage() {
     finalScoreMessage.textContent = `Score: ${score}`;
     finalScoreMessage.classList.add('final-score-message');
     gameBoard.appendChild(finalScoreMessage);
+
+    const pressEnter = document.createElement('div');
+    pressEnter.textContent = '*Press ENTER to continue*';
+    pressEnter.classList.add('pressEnter');
+    gameBoard.appendChild(pressEnter);
 
     // Add an event listener for the Enter key
     window.addEventListener('keydown', function(event) {
