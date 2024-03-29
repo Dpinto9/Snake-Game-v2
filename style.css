@@ -50,7 +50,15 @@ body{
 }
 
 .snake{
-    background-color: #6fc355;
+    background-color: #7b5f48;
+}
+
+.snake-head{
+    background-image: url("Assets/Imgs/snakehead.png");
+    transform: rotate(0deg);
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
 }
 
 .food{
