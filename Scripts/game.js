@@ -26,7 +26,7 @@ function startGame() {
 
 // Function to display entrance message and set up event listener for Enter key press
 function showEntranceMessage() {
-    gameBoard.innerHTML = '<div class="entrance-message">Press ENTER to start</div>';
+    gameBoard.innerHTML = '<div class="entrance-message"><img src="Assets/Imgs/logo.png"><p>Press "ENTER" to start</p></div>';
     document.addEventListener('keydown', startGameKeyPressHandler);
 }
 

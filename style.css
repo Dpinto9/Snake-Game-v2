@@ -42,7 +42,10 @@ body{
 }
 
 .food{
-    background-color: #d84242;
+    background-image: url("Assets/Imgs/apple.png");
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
 }
 
 .entrance-message, .game-over-message, .final-score-message {
@@ -57,6 +60,19 @@ body{
     color: #344e41;
     
     font-size: 60px;
+}
+
+.entrance-message p {
+    margin-top: 285px;
+    border-top: 2px solid #344e41;
+}
+
+.entrance-message img{
+    position: absolute;
+    width: 300px;
+    margin-top: -150px;
+    opacity: 80%;
+
 }
 
 .final-score-message{
@@ -132,8 +148,8 @@ body{
 }
 
 .buttons button.selected{
-    background-color: #ff928b;
-    color: #ffffff;
+    background-color: #fec3a6;
+    color: #e06c9f;
 }
 
 /* Asthetics */
@@ -168,35 +184,40 @@ body{
     width: 90vmin;
     height: 7vmin;
     margin-top: -50px;
-    z-index: -1;
     border-top: 3px solid #588157;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
-.btnele{
-    background-color: #d84242;
-    width: 10vmin;
+.btnele1{
+    background-color: #ffa62b;
+    width: 12vmin;
     height: 7vmin;
-    z-index: -2;
-    margin-top: -90px;
-    margin-left: 400px;
-    border: 4px solid #fb4d3d;
+    z-index: -1;
+    margin-left: 17%;
+    margin-top: -30px;
+    border: 4px solid #f9c74f;
 }
+
 .btnele2{
     background-color: #489fb5;
-    width: 10vmin;
+    width: 18vmin;
     height: 7vmin;
-    z-index: -2;
-    margin-top: -70px;
-    margin-right: 400px;
+    z-index: -1;
+    margin-right: 10%;
+    margin-top: -30px;
     border: 4px solid #82c0cc;
 }
+
 .btnele3{
-    background-color: #ffa62b;
-    width: 10vmin;
+    background-color: #d84242;
+    z-index: -1;
+    width: 18vmin;
     height: 7vmin;
-    z-index: -2;
-    margin-top: -62px;
-    margin-left: 200px;
-    border: 4px solid #f9c74f;
+    margin-top: -30px;
+    margin-right: 20%;
+    border: 4px solid #fb4d3d;
 }
 

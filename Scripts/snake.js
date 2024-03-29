@@ -41,6 +41,7 @@ export function draw(gameBoard){
         snakeElement.style.gridRowStart = segment.y;
         snakeElement.classList.add('snake');
         gameBoard.appendChild(snakeElement);
+        
     })
 }
 
