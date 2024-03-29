@@ -7,16 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="score"></div>
-    <div id="game-board"></div>
-    <div>
-        <button id="slow">slow</button>
-        <button id="fast">fast</button>
-        <button id="normal">normal</button>
-        <button id="big">big</button>
+
+    <div class="container">
+        <div id="score"></div>
+        <div class="gameborder">
+            <div id="game-board"></div>
+        </div>
+        <div class="buttons">
+            <div>
+                <button id="slow">slow</button>
+                <button id="fast">fast</button>
+            </div>
+            <div>
+                <button id="normal">normal</button>
+                <button id="big">big</button>
+            </div>
+        </div>
     </div>
     
-    <script src="game.js" defer type="module"></script>
-    <script src="button.js" defer type="module"></script>
+    <script src="Scripts/button.js" defer type="module"></script>
+    <script src="Scripts/game.js" defer type="module"></script>
 </body>
 </html>
