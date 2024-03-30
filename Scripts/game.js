@@ -40,9 +40,6 @@ function showEntranceMessage() {
     gameBoard.appendChild(highScores);
 
 
-
-    playAudio(1);
-    
     document.addEventListener('keydown', startGameKeyPressHandler);
 }
 
