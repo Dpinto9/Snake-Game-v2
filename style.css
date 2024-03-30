@@ -49,8 +49,38 @@ body{
     grid-template-rows: repeat(31, auto);
 }
 
-.snake{
-    background-color: #7b5f48;
+.snake {
+    background: repeating-linear-gradient(
+        30deg,
+        #7b5f48,
+        #7b5f48 0px,
+        #9c795b 10px,
+        #9c795b 6px
+    );
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 1%;
+    animation: moveStripes 2s linear infinite;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+}
+
+@keyframes moveStripes {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+}
+
+.snake-tail{
+    background: repeating-linear-gradient(
+        30deg,
+        #7b5f48,
+        #7b5f48 0px,
+        #9c795b 10px,
+        #9c795b 6px
+    );
+    animation: moveStripes 2s linear infinite;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    border-radius: 50% / 100% 100% 0 0;
 }
 
 .snake-head{
@@ -61,8 +91,9 @@ body{
     height: 100%;
     background-size: 100%;
     background-color: #7b5f48;
-    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+    border-radius: 50% / 0 0 100% 100%;
 }
+
 
 .food{
     background-image: url("Assets/Imgs/apple.png");

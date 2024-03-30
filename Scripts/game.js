@@ -65,9 +65,16 @@ showEntranceMessage();
 
 function showGameOverMessage() {
 
+    // Snake removal
     const cabeca = document.getElementsByClassName("snake-head")[0];
     if (cabeca) {
         cabeca.style.display = 'none';
+    }
+
+    const corpoList = document.querySelectorAll(".snake, .snake-tail");
+    for (let i = 0; i < corpoList.length; i++) {
+        const corpo = corpoList[i];
+        corpo.style.animationPlayState = 'paused';
     }
 
     playAudio("gameover");
@@ -139,24 +146,33 @@ function checkDeath() {
 }
 
 function adjustSnakeSpeed() {
-    if (score > 30 && getSnakeSpeed() === 10) {
-        setSnakeSpeed(14);
+    const elementToFlash = document.querySelector('#game-board');
+    const currentSpeed = getSnakeSpeed();
 
-        const elementToFlash = document.querySelector('#game-board');
-        playAudio("boost");  
-        elementToFlash.style.animation = 'flash 0.1s infinite alternate'; 
-        setTimeout(() => {
-            elementToFlash.style.animation = ''; 
-        }, 1000);
-        
-    } else if (score > 40 && getSnakeSpeed() === 15) {
-        setSnakeSpeed(18);
-
-        const elementToFlash = document.querySelector('#game-board');
-        playAudio("boost"); 
-        elementToFlash.style.animation = 'flash 0.1s infinite alternate'; 
-        setTimeout(() => {
-            elementToFlash.style.animation = ''; 
-        }, 1000);
+    switch(true) {
+        case (score > 30 && currentSpeed === 10):
+            setSnakeSpeed(14);
+            break;
+        case (score > 40 && currentSpeed === 15):
+            setSnakeSpeed(18);
+            break;
+        case (score > 200 && currentSpeed === 14):
+            setSnakeSpeed(19);
+            break;
+        case (score > 240 && currentSpeed === 18):
+            setSnakeSpeed(21);
+            break;
     }
+
+    if (currentSpeed !== getSnakeSpeed()) {
+        playAudio("boost");
+        flashBoard(elementToFlash);
+    }
+}
+
+function flashBoard(element) {
+    element.style.animation = 'flash 0.1s infinite alternate';
+    setTimeout(() => {
+        element.style.animation = '';
+    }, 1000);
 }
