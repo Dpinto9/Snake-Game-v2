@@ -65,6 +65,11 @@ showEntranceMessage();
 
 function showGameOverMessage() {
 
+    const cabeca = document.getElementsByClassName("snake-head")[0];
+    if (cabeca) {
+        cabeca.style.display = 'none';
+    }
+
     playAudio("gameover");
     
     const gameOverMessage = document.createElement('div');

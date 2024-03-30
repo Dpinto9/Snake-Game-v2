@@ -27,9 +27,23 @@ export function rangeSlider(value) {
     if (audioPlayer) {
         audioPlayer.volume = currentVolume;
     }
+
+    localStorage.setItem("volume", currentVolume);
 }
 
 const rangeInput = document.querySelector('.range');
 rangeInput.addEventListener('input', function() {
     rangeSlider(this.value);
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const storedVolume = localStorage.getItem("volume");
+    if (storedVolume) {
+        currentVolume = parseFloat(storedVolume);
+        document.querySelector('.range').value = currentVolume * 100;
+        document.getElementById('rangeValue').textContent = currentVolume * 100;
+        if (audioPlayer) {
+            audioPlayer.volume = currentVolume;
+        }
+    }
 });
