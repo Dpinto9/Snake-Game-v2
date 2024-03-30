@@ -50,34 +50,33 @@ body{
 }
 
 .snake {
-    background: repeating-linear-gradient(
-        30deg,
-        #7b5f48,
-        #7b5f48 0px,
-        #9c795b 10px,
-        #9c795b 6px
-    );
+    background: linear-gradient(
+        45deg,
+        #7b5f48 25%,
+        #9c795b 25%,
+        #7b5f48 75%, 
+        #9c795b 75%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 1%;
-    animation: moveStripes 2s linear infinite;
+    animation: moveStripes 3s linear infinite;
     animation-direction: alternate;
     animation-fill-mode: both;
 }
 
 @keyframes moveStripes {
     0% { background-position: 0 0; }
-    100% { background-position: 40px 40px; }
+    100% { background-position: 60px 60px; } 
 }
 
 .snake-tail{
-    background: repeating-linear-gradient(
-        30deg,
-        #7b5f48,
-        #7b5f48 0px,
-        #9c795b 10px,
-        #9c795b 6px
+    background: linear-gradient(
+        45deg,
+        #7b5f48 25%,
+        #9c795b 25%,
+        #7b5f48 75%, 
+        #9c795b 75%
     );
-    animation: moveStripes 2s linear infinite;
+    animation: moveStripes 3s linear infinite;
     animation-direction: alternate;
     animation-fill-mode: both;
     border-radius: 50% / 100% 100% 0 0;
