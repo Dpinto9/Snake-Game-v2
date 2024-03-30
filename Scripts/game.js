@@ -1,7 +1,7 @@
 // game.js
 
 import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection, setSnakeSpeed, getSnakeSpeed } from "./snake.js";
-import { update as updateFood, draw as drawFood, score, scoreElement, highScore } from "./food.js";
+import { update as updateFood, draw as drawFood, score, scoreElement, highScore, highElement } from "./food.js";
 import { outsideGrid, setGridSize } from "./grid.js";
 import { getInputDirection } from "./input.js";
 import { playAudio } from "./audio.js";
@@ -138,6 +138,7 @@ function draw() {
     scoreElement.textContent = `Score: ${score}`;
     scoreElement.classList.add('top-element');
     speedElement.textContent = `Speed: ${getSnakeSpeed()}`;
+    highElement.textContent = `High Score: ${highScore}`;
 
 }
 

@@ -6,7 +6,7 @@ let score = 0;
 let highScore = localStorage.getItem("high-score") || 0;
 let food = getRandomFoodPosition()
 const scoreElement = document.getElementById('score');
-const highElement = document.querySelector('.high');
+export const highElement = document.querySelector('.high');
 
 export{ score, scoreElement, highScore };
 
