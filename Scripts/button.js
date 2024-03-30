@@ -65,3 +65,25 @@ bigButton.addEventListener('click', function() {
     setGridSize(31, gameBoard);
     gameBoard.classList.add('big-grid');
 });
+
+
+// Extra Skins Button
+document.addEventListener("DOMContentLoaded", function() {
+    const button = document.querySelector('.extra button');
+    const skin = document.querySelector('.skins');
+
+    let isVisible = false;
+
+    button.addEventListener('click', function() {
+        if (isVisible) {
+            skin.style.animation = 'none'; 
+            setTimeout(() => { 
+                skin.style.top = '-43vmin'; 
+            }, 500);
+        } else {
+            skin.style.top = '25%';
+            skin.style.animation = 'bounce 2s ease forwards'; //
+        }
+        isVisible = !isVisible; 
+    });
+});
