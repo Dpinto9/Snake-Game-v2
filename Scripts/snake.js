@@ -43,6 +43,21 @@ export function draw(gameBoard) {
         // Add a class for the snake head
         if (index === 0) {
             snakeElement.classList.add('snake-head');
+            // Add the rotation based on the direction of movement
+            const inputDirection = getInputDirection();
+            if (inputDirection.x === 0 && inputDirection.y === -1) {
+                snakeElement.style.transform = 'rotate(180deg)';
+                // up
+            } else if (inputDirection.x === 0 && inputDirection.y === 1) {
+                // down
+                snakeElement.style.transform = 'rotate(0deg)';
+            } else if (inputDirection.x === -1 && inputDirection.y === 0) {
+                // left
+                snakeElement.style.transform = 'rotate(90deg)';
+            } else if (inputDirection.x === 1 && inputDirection.y === 0) {
+                // right
+                snakeElement.style.transform = 'rotate(270deg)';
+            }
         } else {
             snakeElement.classList.add('snake');
         }
