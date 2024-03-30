@@ -128,6 +128,19 @@ body{
     }
 }
 
+.highScores {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: #344e41;
+    text-shadow: -1px -1px 0 #d4e09b,  
+                  1px -1px 0 #d4e09b,
+                 -1px  1px 0 #d4e09b,
+                  1px  1px 0 #d4e09b;
+}
+
 
 .gameborder{
     width: 10px;

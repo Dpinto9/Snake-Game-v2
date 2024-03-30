@@ -1,7 +1,7 @@
 // game.js
 
 import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection, setSnakeSpeed, getSnakeSpeed } from "./snake.js";
-import { update as updateFood, draw as drawFood, score, scoreElement } from "./food.js";
+import { update as updateFood, draw as drawFood, score, scoreElement, highScore } from "./food.js";
 import { outsideGrid, setGridSize } from "./grid.js";
 import { getInputDirection } from "./input.js";
 import { playAudio } from "./audio.js";
@@ -33,6 +33,13 @@ function showEntranceMessage() {
     pressEnter.textContent = '*Press "ENTER" to start*';
     pressEnter.classList.add('pressEnter');
     gameBoard.appendChild(pressEnter);
+    
+    const highScores = document.createElement('div');
+    highScores.textContent = ` -- HighScore Pessoal: ${highScore} --`;
+    highScores.classList.add('highScores');
+    gameBoard.appendChild(highScores);
+
+
 
     playAudio(1);
     

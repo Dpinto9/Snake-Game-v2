@@ -8,7 +8,7 @@ let food = getRandomFoodPosition()
 const scoreElement = document.getElementById('score');
 const highElement = document.querySelector('.high');
 
-export{ score, scoreElement };
+export{ score, scoreElement, highScore };
 
 const EXPANSION_RATE = 1
 
