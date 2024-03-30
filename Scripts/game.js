@@ -158,10 +158,10 @@ function adjustSnakeSpeed() {
             setSnakeSpeed(18);
             break;
         case (score > 200 && currentSpeed === 14):
-            setSnakeSpeed(19);
+            setSnakeSpeed(16);
             break;
         case (score > 240 && currentSpeed === 18):
-            setSnakeSpeed(21);
+            setSnakeSpeed(19);
             break;
     }
 
