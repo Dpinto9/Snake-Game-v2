@@ -394,8 +394,8 @@ body{
     align-items: center;
 
     padding: 20px;
-    margin-top: px;
-    margin-left: 40%;
+    margin-top: 1px;
+    margin-left: 25vmin;
     background: linear-gradient(to bottom, rgba(0,0,0,0.05), #588157);
     height: 2vmin;
     border-radius: 40px;
