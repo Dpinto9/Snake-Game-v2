@@ -1,4 +1,3 @@
-// Define audio files as an object with keys as names
 const audioFiles = {
     eating: 'Assets/Sounds/eating-v2.mp3',
     start: 'Assets/Sounds/start.mp3',

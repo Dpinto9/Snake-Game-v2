@@ -1,6 +1,8 @@
-import { onSnake, expandSnake, getSnakeSpeed } from "./snake.js";
+import { onSnake, expandSnake } from "./snake.js";
 import { randomGridPosition } from "./grid.js";
 import { playAudio } from "./audio.js";
+
+export{ score, scoreElement, highScore };
 
 let score = 0;
 let highScore = localStorage.getItem("high-score") || 0;
@@ -8,14 +10,13 @@ let food = getRandomFoodPosition()
 const scoreElement = document.getElementById('score');
 export const highElement = document.querySelector('.high');
 
-export{ score, scoreElement, highScore };
-
 const EXPANSION_RATE = 1
 
 export function update(){
     if(onSnake(food)){
         expandSnake(EXPANSION_RATE)
         food = getRandomFoodPosition()
+        
         score += 10 ;
         playAudio('eating');
         showNotification('+10 pontos!');

@@ -1,9 +1,7 @@
 // game.js
-
 import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection, setSnakeSpeed, getSnakeSpeed } from "./snake.js";
 import { update as updateFood, draw as drawFood, score, scoreElement, highScore, highElement } from "./food.js";
-import { outsideGrid, setGridSize } from "./grid.js";
-import { getInputDirection } from "./input.js";
+import { outsideGrid } from "./grid.js";
 import { playAudio } from "./audio.js";
 
 const gameBoard = document.getElementById('game-board');
@@ -14,7 +12,6 @@ let gameOver = false;
 let gameStarted = false;
 
 
-// Entry function to start the game
 function startGame() {
     if (!gameStarted) {
         gameStarted = true;
@@ -25,7 +22,6 @@ function startGame() {
     }
 }
 
-// Function to display entrance message and set up event listener for Enter key press
 function showEntranceMessage() {
     gameBoard.innerHTML = '<div class="entrance-message"><img src="Assets/Imgs/logo.png"><p>Snake Game</p></div>';
 
@@ -43,7 +39,6 @@ function showEntranceMessage() {
     document.addEventListener('keydown', startGameKeyPressHandler);
 }
 
-// Function to handle key press for starting the game and resetting the game
 function startGameKeyPressHandler(event) {
     if (!gameStarted) {
         if (event.key === 'Enter') {
@@ -60,12 +55,10 @@ function startGameKeyPressHandler(event) {
     }
 }
 
-// Display entrance message initially
 showEntranceMessage();
 
 function showGameOverMessage() {
 
-    // Snake removal
     const cabeca = document.getElementsByClassName("snake-head")[0];
     if (cabeca) {
         cabeca.style.display = 'none';
@@ -94,7 +87,6 @@ function showGameOverMessage() {
     pressEnter.classList.add('pressEnter');
     gameBoard.appendChild(pressEnter);
 
-    // Add an event listener for the Enter key
     window.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             location.reload();
@@ -102,12 +94,6 @@ function showGameOverMessage() {
     });
 }
 
-let soundPlayed = false;
-let lastSoundPlayTime = 0;
-const soundInterval = 5000;
-
-
-// Main game loop
 function main(currentTime) {
     if (gameOver) {
         showGameOverMessage();
