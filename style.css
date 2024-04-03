@@ -56,8 +56,8 @@ body{
 }
 
 
-/* snake extra skins */
-.skins {
+/* snake extra rulecont */
+.rulecont {
     position: absolute;
     top: -43vmin;
     left: 5%;
@@ -81,7 +81,7 @@ body{
 }
 
 
-.skinshadow {
+.rulesshadow {
     position: relative;
     border: 10px solid #3a5a40;
     border-bottom: 1px solid #588157;
@@ -96,7 +96,7 @@ body{
 }
 
 /* CSS for scrollbar */
-.skinshadow::-webkit-scrollbar {
+.rulesshadow::-webkit-scrollbar {
     display: none;
 }
 
@@ -129,21 +129,21 @@ body{
     font-size: large;
 }
 
-.skin {
+.rules {
     margin-top: 2px;
-    height: 70%;
+    height: auto;
     background-color: #fff;
-    border-radius: 10%;
+    border-radius: 2%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     z-index: -1;
 }
 
-.skin h2 {
+.rules h2 {
     margin-top: 0;
 }
 
-.skin button{
+/* .rules button{
     font-family: "Rakkas", serif;
     height: 30px;
     display: inline-block;
@@ -159,19 +159,27 @@ body{
     color: #a3b18a;
 }
 
-.skin button:hover{
+.rules button:hover{
     background-color: #b0c4b1;
     color: white;
 }
 
-.skin button.selected{
+.rules button.selected{
     background-color: #f9c74f;
     color: #fff;
+} */
+
+.rules p {
+    font-size: 14px;
+    margin: 14px;
+    margin-bottom: 0;
+    text-align: justify;
 }
 
-.skin p {
-    font-size: 14px;
-    margin-bottom: 0;
+.rules span {
+    font-size: 18px;
+    text-decoration: underline;
+    text-align: left;
 }
 
 .imgtest{

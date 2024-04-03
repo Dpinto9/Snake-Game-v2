@@ -59,22 +59,22 @@ bigButton.addEventListener('click', function() {
 });
 
 
-// Extra Skins Button
+// Extra Rules Button
 document.addEventListener("DOMContentLoaded", function() {
     const button = document.querySelector('.extra button');
-    const skin = document.querySelector('.skins');
+    const rules = document.querySelector('.rulecont');
 
     let isVisible = false;
 
     button.addEventListener('click', function() {
         if (isVisible) {
-            skin.style.animation = 'none'; 
+            rules.style.animation = 'none'; 
             setTimeout(() => { 
-                skin.style.top = '-43vmin'; 
+                rules.style.top = '-43vmin'; 
             }, 500);
         } else {
-            skin.style.top = '25%';
-            skin.style.animation = 'bounce 2s ease forwards'; //
+            rules.style.top = '25%';
+            rules.style.animation = 'bounce 2s ease forwards'; 
         }
         isVisible = !isVisible; 
     });
