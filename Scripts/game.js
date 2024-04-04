@@ -15,7 +15,7 @@ let gameStarted = false;
 function startGame() {
     if (!gameStarted) {
         gameStarted = true;
-        
+
         document.removeEventListener('keydown', startGameKeyPressHandler); 
         requestAnimationFrame(main);
 
@@ -59,15 +59,15 @@ showEntranceMessage();
 
 function showGameOverMessage() {
 
-    const cabeca = document.getElementsByClassName("snake-head")[0];
-    if (cabeca) {
-        cabeca.style.display = 'none';
+    const head = document.getElementsByClassName("snake-head")[0];
+    if (head) {
+        head.style.display = 'none';
     }
 
-    const corpoList = document.querySelectorAll(".snake, .snake-tail");
-    for (let i = 0; i < corpoList.length; i++) {
-        const corpo = corpoList[i];
-        corpo.style.animationPlayState = 'paused';
+    const bodies = document.querySelectorAll(".snake, .snake-tail");
+    for (let i = 0; i < bodies.length; i++) {
+        const body = bodies[i];
+        body.style.animationPlayState = 'paused';
     }
 
     playAudio("gameover");
