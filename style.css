@@ -585,3 +585,23 @@ body{
     border: 4px solid #fb4d3d;
 }
 
+/* mobile */
+.mobile {
+    display: none;
+    text-align: center;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 50px;
+    margin: 10px;
+    font-size: 20px;
+  }
+  
+  /* CSS media query for mobile devices */
+  @media screen and (max-width: 900px) {
+    .mobile {
+      display: block;
+    }
+    body *:not(.mobile) {
+        display: none;
+    }
+  }
