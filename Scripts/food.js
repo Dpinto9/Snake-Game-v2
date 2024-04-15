@@ -18,9 +18,9 @@ export function update(){
     for (let i = 0; i < food.length; i++) {
         if(onSnake(food[i])){
             expandSnake(GROWINGLENGTH)
-            score += 10 ;
+            score += 5 ;
             playAudio('eating');
-            showNotification('+10 pontos!');
+            showNotification('+5 pontos!');
             scoreElement.textContent = `Score: ${score}`;
             
             highScore = score >=highScore ? score : highScore;
