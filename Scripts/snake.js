@@ -50,7 +50,6 @@ export function draw(gameBoard) {
         snakeElement.style.gridColumnStart = segment.x;
         snakeElement.style.gridRowStart = segment.y;
 
-        // Add a class for the snake head
         if (index === 0) {
             snakeElement.classList.add('snake-head');
             

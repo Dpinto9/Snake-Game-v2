@@ -49,12 +49,12 @@ fastButton.addEventListener('click', function() {
 });
 
 normalButton.addEventListener('click', function() {
-    setGridSize(21, gameBoard);
+    setGridSize(20, gameBoard);
     gameBoard.classList.remove('big-grid');
 });
 
 bigButton.addEventListener('click', function() {
-    setGridSize(31, gameBoard);
+    setGridSize(30, gameBoard);
     gameBoard.classList.add('big-grid');
 });
 

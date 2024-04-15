@@ -21,26 +21,37 @@ body{
 
 
 /* Game Board */
-#game-board{
+#game-board {
+    margin-left: 10vmin;
     background-color: none;
-
-    width: 80vmin;
-    height: 60vmin;
+    width: min(60vmin, 60vh);
+    height: min(60vmin, 60vh);
 
     display: grid;
-    grid-template-columns: repeat(21, auto);
-    grid-template-rows: repeat(21, auto);
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
 
+    border-left:3px solid #a3b18a;
+    border-right:3px solid #a3b18a;
+    border-radius: 1%;
+    
+    background: rgb(221,232,171);
+    background: radial-gradient(circle, rgba(221,232,171,1) 91%, rgba(212,224,155,1) 99%);
     
 }
 
 #game-board.big-grid {
-    grid-template-columns: repeat(31, auto);
-    grid-template-rows: repeat(31, auto);
+    grid-template-columns: repeat(30, 1fr); 
+    grid-template-rows: repeat(30, 1fr);
 }
 
 .gameborder{
-    width: 10px;
+    width: min(80vmin, 80vh);
+    height: min(60vmin, 60vh);
+    z-index: -1;
+
+    background: rgb(52,78,65);
+    background: linear-gradient(90deg, rgba(52,78,65,1) 7%, rgba(163,177,138,1) 25%, rgba(163,177,138,1) 75%, rgba(52,78,65,1) 95%);
 }
 
 .creditos {
@@ -489,8 +500,8 @@ body{
     border: 5px solid #344e41;
     border-radius: 48px;
 
-    background: rgb(221,232,171);
-    background: radial-gradient(circle, rgba(221,232,171,1) 91%, rgba(212,224,155,1) 99%);
+    /* background: rgb(221,232,171);
+    background: radial-gradient(circle, rgba(221,232,171,1) 91%, rgba(212,224,155,1) 99%); */
 }
 .container2{
     border: 10px solid #3a5a40;
