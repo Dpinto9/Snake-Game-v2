@@ -11,14 +11,14 @@ let lastRender = 0;
 let gameOver = false;
 let gameStarted = false;
 
-
 function startGame() {
     if (!gameStarted) {
         gameStarted = true;
+        
+        document.removeEventListener('keydown', startGameKey); 
 
-        document.removeEventListener('keydown', startGameKeyPressHandler); 
-        requestAnimationFrame(main);
-
+        gameInterval = setInterval(main, 1000 / SNAKE_SPEED);
+       
     }
 }
 
@@ -36,13 +36,13 @@ function showEntranceMessage() {
     gameBoard.appendChild(highScores);
 
 
-    document.addEventListener('keydown', startGameKeyPressHandler);
+    document.addEventListener('keydown', startGameKey);
 }
 
-function startGameKeyPressHandler(event) {
+function startGameKey(event) {
     if (!gameStarted) {
         if (event.key === 'Enter') {
-            document.removeEventListener('keydown', startGameKeyPressHandler);
+            document.removeEventListener('keydown', startGameKey);
             startGame();
 
             playAudio("start");
@@ -94,23 +94,24 @@ function showGameOverMessage() {
     });
 }
 
-function main(currentTime) {
+window.addEventListener('keydown', function(event) {
+    if (event.key === 'x' || event.key === 'X') {
+        addNewFood();
+    }
+});
+
+function main() {
     if (gameOver) {
         showGameOverMessage();
+        clearInterval(gameInterval);
         return;
     }
-    requestAnimationFrame(main);
-
-    const secondsSinceLastRender = (currentTime - lastRender) / 1000;
-    if (secondsSinceLastRender < 1 / SNAKE_SPEED) return;
-
-    lastRender = currentTime;
 
     update();
     draw();
 }
 
-gameBoard.addEventListener('click', addNewFood);
+let gameInterval = setInterval(startGame, 12000);
 
 function update() {
     updateSnake();

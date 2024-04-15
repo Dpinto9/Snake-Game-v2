@@ -6,46 +6,52 @@ export{ score, scoreElement, highScore };
 
 let score = 0;
 let highScore = localStorage.getItem("high-score") || 0;
-let food = getRandomFoodPosition()
-let newFood = null;
+export let food = [getRandomFoodPosition()];
 const scoreElement = document.getElementById('score');
 export const highElement = document.querySelector('.high');
 
-const EXPANSION_RATE = 1
+const GROWINGLENGTH = 1
 
 export function update(){
-    if(onSnake(food)){
-        expandSnake(EXPANSION_RATE)
-        food = getRandomFoodPosition()
-        
-        score += 10 ;
-        playAudio('eating');
-        showNotification('+10 pontos!');
-        scoreElement.textContent = `Score: ${score}`;
-        
-        highScore = score >=highScore ? score : highScore;
-        localStorage.setItem("high-score", highScore);
-        highElement.textContent = `High Score: ${highScore}`;
+    let remainingFood = [];
+
+    for (let i = 0; i < food.length; i++) {
+        if(onSnake(food[i])){
+            expandSnake(GROWINGLENGTH)
+            score += 10 ;
+            playAudio('eating');
+            showNotification('+10 pontos!');
+            scoreElement.textContent = `Score: ${score}`;
+            
+            highScore = score >=highScore ? score : highScore;
+            localStorage.setItem("high-score", highScore);
+            highElement.textContent = `High Score: ${highScore}`;
+        } else {
+            remainingFood.push(food[i]);
+        }
     }
 
-    // Check if there is new food
-    if (newFood) {
-        // If there is, add it to the game
-        food = newFood;
-        newFood = null;
+    food = remainingFood;
+
+    if (food.length === 0) {
+        addNewFood();
     }
 }
 
 export function addNewFood() {
-    newFood = getRandomFoodPosition();
+    food.push (getRandomFoodPosition());
 }
 
 export function draw(gameBoard){
-    const foodElement = document.createElement('div');
-    foodElement.style.gridColumnStart = food.x;
-    foodElement.style.gridRowStart = food.y;
-    foodElement.classList.add('food');
-    gameBoard.appendChild(foodElement);
+    document.querySelectorAll('.food').forEach(foodElement => foodElement.remove());
+
+    food.forEach(foodItem => {
+        const foodElement = document.createElement('div');
+        foodElement.style.gridColumnStart = foodItem.x;
+        foodElement.style.gridRowStart = foodItem.y;
+        foodElement.classList.add('food');
+        gameBoard.appendChild(foodElement);
+    });
 }
 
 function getRandomFoodPosition(){
