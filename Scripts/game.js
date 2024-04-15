@@ -1,6 +1,6 @@
 // game.js
 import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection, setSnakeSpeed, getSnakeSpeed } from "./snake.js";
-import { update as updateFood, draw as drawFood, score, scoreElement, highScore, highElement } from "./food.js";
+import { update as updateFood, draw as drawFood, score, scoreElement, highScore, highElement, addNewFood } from "./food.js";
 import { outsideGrid } from "./grid.js";
 import { playAudio } from "./audio.js";
 
@@ -109,6 +109,8 @@ function main(currentTime) {
     update();
     draw();
 }
+
+gameBoard.addEventListener('click', addNewFood);
 
 function update() {
     updateSnake();

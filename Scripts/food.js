@@ -7,6 +7,7 @@ export{ score, scoreElement, highScore };
 let score = 0;
 let highScore = localStorage.getItem("high-score") || 0;
 let food = getRandomFoodPosition()
+let newFood = null;
 const scoreElement = document.getElementById('score');
 export const highElement = document.querySelector('.high');
 
@@ -26,6 +27,17 @@ export function update(){
         localStorage.setItem("high-score", highScore);
         highElement.textContent = `High Score: ${highScore}`;
     }
+
+    // Check if there is new food
+    if (newFood) {
+        // If there is, add it to the game
+        food = newFood;
+        newFood = null;
+    }
+}
+
+export function addNewFood() {
+    newFood = getRandomFoodPosition();
 }
 
 export function draw(gameBoard){

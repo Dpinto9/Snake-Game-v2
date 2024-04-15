@@ -37,6 +37,8 @@ body{
     
     background: rgb(221,232,171);
     background: radial-gradient(circle, rgba(221,232,171,1) 91%, rgba(212,224,155,1) 99%);
+
+    opacity: 1;
     
 }
 
@@ -51,7 +53,7 @@ body{
     z-index: -1;
 
     background: rgb(52,78,65);
-    background: linear-gradient(90deg, rgba(52,78,65,1) 7%, rgba(163,177,138,1) 25%, rgba(163,177,138,1) 75%, rgba(52,78,65,1) 95%);
+    background: linear-gradient(90deg, rgba(52,78,65,1) 9%, rgba(163,177,138,1) 14%,rgba(221,232,171,1) 28%, rgba(221,232,171,1) 74%, rgba(163,177,138,1) 88%, rgba(52,78,65,1) 91%);
 }
 
 .creditos {
