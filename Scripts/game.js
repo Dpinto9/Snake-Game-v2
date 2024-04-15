@@ -111,7 +111,7 @@ function main() {
     draw();
 }
 
-let gameInterval = setInterval(startGame, 12000);
+let gameInterval = setInterval(startGame, 1200000);
 
 function update() {
     updateSnake();
@@ -155,6 +155,8 @@ function adjustSnakeSpeed() {
     }
 
     if (currentSpeed !== getSnakeSpeed()) {
+        clearInterval(gameInterval);
+        gameInterval = setInterval(main, 1000 / getSnakeSpeed());
         playAudio("boost");
         flashBoard(elementToFlash);
     }

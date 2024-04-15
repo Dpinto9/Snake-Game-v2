@@ -38,8 +38,6 @@ body{
     background: rgb(221,232,171);
     background: radial-gradient(circle, rgba(221,232,171,1) 91%, rgba(212,224,155,1) 99%);
 
-    opacity: 1;
-    
 }
 
 #game-board.big-grid {
