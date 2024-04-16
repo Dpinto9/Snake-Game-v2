@@ -7,9 +7,10 @@ import { playAudio } from "./audio.js";
 const gameBoard = document.getElementById('game-board');
 const speedElement = document.getElementById('speed');
 
-let lastRender = 0;
 let gameOver = false;
 let gameStarted = false;
+let gameInterval = setInterval(startGame, 1200000);
+
 
 function startGame() {
     if (!gameStarted) {
@@ -111,7 +112,6 @@ function main() {
     draw();
 }
 
-let gameInterval = setInterval(startGame, 1200000);
 
 function update() {
     updateSnake();
